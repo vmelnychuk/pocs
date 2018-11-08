@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "Vasyl Melnychuk",
+      "authorEmail": "vmmelnychuk@gmail.com",
+      "authorUrl": "http://vmelnychuk.github.io"
+    }
+  }
+}
