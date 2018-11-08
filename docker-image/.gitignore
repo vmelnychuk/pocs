@@ -1,0 +1,16 @@
+## Gradle
+build/
+.gradle/
+
+## VS Code
+bin/
+.settings/
+.classpath
+.project
+.vscode/
+
+## macOS files
+.DS_Store
+
+## Service
+*.log

@@ -1,0 +1,39 @@
+debug: false
+
+spring:
+    application:
+        name: service
+    config:
+        additional-location:
+            service.yml
+    profiles:
+        active: development
+
+server:
+    port: 10000
+    http2:
+        enabled: true
+    server-header: service
+    servlet:
+        application-display-name: valera-FIXME
+
+---
+spring:
+    profiles: development
+server:
+    port: 10001
+
+logging:
+    level:
+        org.springframework.web: INFO
+        io.neko: DEBUG
+        io.neko.service.Main: INFO
+        org.eclipse.jetty.server.session: ERROR
+
+    file: service.log
+
+---
+spring:
+    profiles: production
+server:
+    port: 0

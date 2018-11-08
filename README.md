@@ -1,2 +1,3 @@
 # pocs
-Small POCs for try ideas
+Small POCs to try ideas.
+

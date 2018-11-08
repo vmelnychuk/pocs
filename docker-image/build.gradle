@@ -1,0 +1,57 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.1.0.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.6.RELEASE'
+}
+
+configurations {
+    compile.exclude module: 'spring-boot-starter-tomcat'
+}
+
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-jetty'
+
+    compileOnly 'org.projectlombok:lombok:1.18.4'
+    annotationProcessor 'org.projectlombok:lombok:1.18.4'
+
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
+    testCompile 'junit:junit'
+}
+
+repositories {
+    jcenter()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+bootJar {
+    classifier = 'boot'
+    mainClassName = 'io.neko.service.Main'
+    archiveName = 'service.jar'
+    launchScript {
+    properties 'logFilename': 'service.log'
+    }
+    manifest {
+        attributes 'Implementation-Version': '0.0.1'
+        attributes 'Implementation-Title': 'service'
+    }
+}
+
+bootRun {
+    main = 'io.neko.service.Main'
+}
+
+springBoot {
+    mainClassName = 'io.neko.service.Main'
+    buildInfo {
+        properties {
+            artifact = 'service'
+            version = '0.0.1'
+            group = 'io.neko'
+            name = 'Service'
+        }
+    }
+}
